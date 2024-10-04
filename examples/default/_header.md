@@ -1,3 +1,3 @@
-# Default example
+# Configure all settings of a proximity placement group
 
-This deploys the module in its simplest form.
+This example shows how to create and configure a proximity placement group with all its settings using Terraform for Azure.
