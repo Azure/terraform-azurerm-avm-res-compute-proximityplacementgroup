@@ -1,23 +1,33 @@
 <!-- BEGIN_TF_DOCS -->
-# terraform-azurerm-avm-template
+# Azure Proximity Placement Group Module
 
-This is a template repo for Terraform Azure Verified Modules.
+This module is used to create and manage Proximity Placement Groups in Azure. Proximity Placement Groups are used to minimize latency between compute resources by grouping them within a specific data center.
 
-Things to do:
+## Features
 
-1. Set up a GitHub repo environment called `test`.
-1. Configure environment protection rule to ensure that approval is required before deploying to this environment.
-1. Create a user-assigned managed identity in your test subscription.
-1. Create a role assignment for the managed identity on your test subscription, use the minimum required role.
-1. Configure federated identity credentials on the user assigned managed identity. Use the GitHub environment.
-1. Search and update TODOs within the code and remove the TODO comments once complete.
+- Create a Proximity Placement Group to optimize compute latency.
+- Easily integrate with virtual machines, scale sets, and availability sets to ensure low-latency communication.
 
-> [!IMPORTANT]
-> As the overall AVM framework is not GA (generally available) yet - the CI framework and test automation is not fully functional and implemented across all supported languages yet - breaking changes are expected, and additional customer feedback is yet to be gathered and incorporated. Hence, modules **MUST NOT** be published at version `1.0.0` or higher at this time.
->
-> All module **MUST** be published as a pre-release version (e.g., `0.1.0`, `0.1.1`, `0.2.0`, etc.) until the AVM framework becomes GA.
->
-> However, it is important to note that this **DOES NOT** mean that the modules cannot be consumed and utilized. They **CAN** be leveraged in all types of environments (dev, test, prod etc.). Consumers can treat them just like any other IaC module and raise issues or feature requests against them as they learn from the usage of the module. Consumers should also read the release notes for each version, if considering updating to a more recent version of a module to see if there are any considerations or breaking changes etc.
+## Usage
+
+To use this module in your Terraform configuration, you'll need to provide values for the required variables.
+
+### Example - Deploy a Proximity Placement Group
+
+This example demonstrates how to create a Proximity Placement Group.
+
+```terraform
+module "proximity_placement_group" {
+  source = "Azure/avm-res-compute-proximity-placement-group/azurerm"
+
+  name                = "myProximityPlacementGroup"
+  location            = "East US"
+  resource_group_name = "myResourceGroup"
+
+  allowed_vm_sizes = ["Standard_D2ds_v5"]
+  zone             = "1"
+}
+```
 
 <!-- markdownlint-disable MD033 -->
 ## Requirements
