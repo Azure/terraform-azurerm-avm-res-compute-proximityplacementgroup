@@ -1,5 +1,6 @@
 terraform {
   required_version = "~> 1.9"
+
   required_providers {
     azurerm = {
       source  = "hashicorp/azurerm"
@@ -48,17 +49,15 @@ resource "azurerm_resource_group" "this" {
 
 # Creating a proximity placement group with a unique name, telemetry settings, and in the specified resource group and location
 module "ppg" {
-  source              = "../../"
+  source = "../../"
+
   location            = azurerm_resource_group.this.location
   name                = module.naming.proximity_placement_group.name_unique
   resource_group_name = azurerm_resource_group.this.name
-
-  enable_telemetry = true
-
-  allowed_vm_sizes = ["Standard_D2ds_v5"]
-  zone             = "1"
-
+  allowed_vm_sizes    = ["Standard_D2ds_v5"]
+  enable_telemetry    = true
   tags = {
     environment = "example"
   }
+  zone = "1"
 }
