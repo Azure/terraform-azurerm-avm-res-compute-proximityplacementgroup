@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/azure-verified-modules-tools/main/src/Avm.Authoring/Resources/Schemas/v1/avm-module-metadata.schema.json",
+  "moduleDisplayName": "Proximity Placement Group",
+  "moduleDescription": "AVM Resource Module for Proximity Placement Group",
+  "canonicalType": "Microsoft.Compute/proximityPlacementGroups",
+  "owners": [
+    "fafriha"
+  ],
+  "telemetryIdPrefix": "46d3xtrf.res.0650570"
+}
