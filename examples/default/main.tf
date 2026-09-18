@@ -56,7 +56,7 @@ module "ppg" {
   name                = module.naming.proximity_placement_group.name_unique
   resource_group_name = azurerm_resource_group.this.name
   allowed_vm_sizes    = ["Standard_D2ds_v5"]
-  enable_telemetry    = false
+  enable_telemetry    = var.enable_telemetry
   tags = {
     environment = "example"
   }
